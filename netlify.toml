@@ -1,7 +1,14 @@
 [build]
-publish = "public"
-command = "yarn project-setup; yarn build"
+  command = "hugo"
+  publish = "public"
 
-[build.environment]
-HUGO_VERSION = "0.139.2"
-GO_VERSION = "1.23.3"
+[context.production.environment]
+  HUGO_ENV = "production"
+
+[context.deploy-preview]
+  command = "hugo"
+  publish = "public"
+
+[context.branch-deploy]
+  command = "hugo"
+  publish = "public"

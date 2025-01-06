@@ -1,0 +1,58 @@
+baseURL = "https://suissejobsolution.ch"
+title = "Suisse Job Solution"
+theme = "hugoplate"
+timeZone = "Europe/Zurich"
+summaryLength = 20
+defaultContentLanguage = 'fr'
+defaultContentLanguageInSubdir = false
+
+[params]
+  author = "Suisse Job Solution"
+  description = "Accompagnement, coaching et soutien dans la réussite de son projet en Suisse Romande."
+  dateFormat = "2006-01-02"
+  enableSocial = true
+  enableTOC = true
+
+[params.logo]
+  src = "images/logo.png"
+  alt = "Suisse Job Solution"
+
+[menu]
+  [[menu.main]]
+    name = "Accueil"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Services"
+    url = "/services/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 3
+
+  [[menu.main]]
+    name = "Ebooks"
+    url = "/ebooks/"
+    weight = 4
+
+  [[menu.main]]
+    name = "Accès Privé"
+    url = "/acces-prive/"
+    weight = 5
+
+[params.footer]
+  copyright = "&copy; 2025 Suisse Job Solution"
+
+[services]
+  [services.googleAnalytics]
+    ID = 'G-XR203Y7L0G'
+
+  [services.disqus]
+    shortname = 'suissejobsolution'
+
+[[params.plugins.js]]
+link = "js/chatgpt.js"
+lazy = false

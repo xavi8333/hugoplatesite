@@ -1,61 +1,71 @@
-<meta charset="utf-8" />
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8" />
 
-<!-- responsive meta -->
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <!-- responsive meta -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=5" />
 
-<!-- theme meta -->
-<meta name="theme-name" content="hugoplate" />
+  <!-- theme meta -->
+  <meta name="theme-name" content="hugoplate" />
 
-<!-- favicon -->
-{{ partialCached "favicon" . }}
+  <!-- favicon -->
+  {{ partialCached "favicon" . }}
 
+  <!-- manifest -->
+  {{ partialCached "manifest" . }}
 
-<!-- manifest -->
-{{ partialCached "manifest" . }}
+  <!-- site verifications -->
+  {{ partialCached "site-verifications.html" . }}
 
+  <!-- opengraph and twitter card -->
+  {{ partial "basic-seo.html" . }}
 
-<!-- site verifications -->
-{{ partialCached "site-verifications.html" . }}
+  <!-- custom script -->
+  {{ partialCached "custom-script.html" . }}
 
+  <!-- google analytics -->
+  {{ if and .Site.Config.Services.GoogleAnalytics.ID (ne .Site.Config.Services.GoogleAnalytics.ID "G-MEASUREMENT_ID") }}
+    {{ template "_internal/google_analytics.html" . }}
+  {{ end }}
 
-<!-- opengraph and twitter card -->
-{{ partial "basic-seo.html" . }}
+  <!-- google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XR203Y7L0G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', '{{ .Site.Params.googleAnalytics.ID }}');
+  </script>
 
-<!-- custom script -->
-{{ partialCached "custom-script.html" . }}
+  <!-- google tag manager -->
+  {{ partialCached "gtm.html" . }}
 
+  <!-- search index -->
+  {{ partial "search-index.html" . }}
 
-<!-- google analytics -->
-{{ if and site.Config.Services.GoogleAnalytics.ID (ne site.Config.Services.GoogleAnalytics.ID "G-MEASUREMENT_ID") }}
-  {{ template "_internal/google_analytics.html" . }}
-{{ end }}
+  <!-- matomo analytics -->
+  {{/* {{ partialCached "matomo-analytics.html" . }} */}}
 
+  <!--  Baidu analytics -->
+  {{/* {{ partialCached "baidu-analytics.html" . }} */}}
 
-<!-- google tag manager -->
-{{ partialCached "gtm.html" . }}
+  <!-- Plausible Analytics -->
+  {{/* {{ partialCached "plausible-analytics.html" . }} */}}
 
+  <!-- Counter Analytics -->
+  {{/* {{ partialCached "counter-analytics.html" . }} */}}
 
-<!-- search index -->
-{{ partial "search-index.html" . }}
+  <!-- Crisp Chat -->
+  {{/* {{ partialCached "crisp-chat.html" . }} */}}
 
-
-<!-- matomo analytics -->
-{{/* {{ partialCached "matomo-analytics.html" . }} */}}
-
-<!--  Baidu analytics -->
-{{/* {{ partialCached "baidu-analytics.html" . }} */}}
-
-<!-- Plausible Analytics -->
-{{/* {{ partialCached "plausible-analytics.html" . }} */}}
-
-<!-- Counter Analytics -->
-{{/* {{ partialCached "counter-analytics.html" . }} */}}
-
-<!-- Crisp Chat -->
-{{/* {{ partialCached "crisp-chat.html" . }} */}}
-
-<!-- Mermaid -->
-{{ partial "mermaid/assets/js" . }}
+  <!-- Mermaid -->
+  {{ partial "mermaid/assets/js" . }}
+</head>
+<body>
+  <!-- Contenu du body -->
+</body>
+</html>
